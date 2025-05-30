@@ -103,3 +103,7 @@ user-directory-assignment/
 
 **Example Create/Edit Form:**
 (Imagine a form with fields for Name, Email, Role, and Add/Update/Cancel buttons)
+
+![addUser](image1.png)
+![updateUser](image.png)
+![graphql](image-1.png)
