@@ -1,0 +1,56 @@
+<h2>{{ editingUser ? 'Edit User' : 'Create User' }}</h2>
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+  <div>
+    <label for="name">Name:</label>
+    <input id="name" formControlName="name">
+    <div *ngIf="userForm.get('name')?.invalid && (userForm.get('name')?.dirty || userForm.get('name')?.touched)">
+      <small *ngIf="userForm.get('name')?.errors?.['required']">Name is required.</small>
+    </div>
+  </div>
+  <div>
+    <label for="email">Email:</label>
+    <input id="email" formControlName="email">
+    <div *ngIf="userForm.get('email')?.invalid && (userForm.get('email')?.dirty || userForm.get('email')?.touched)">
+      <small *ngIf="userForm.get('email')?.errors?.['required']">Email is required.</small>
+      <small *ngIf="userForm.get('email')?.errors?.['email']">Invalid email format.</small>
+    </div>
+  </div>
+  <div>
+    <label for="role">Role:</label>
+    <input id="role" formControlName="role">
+    <div *ngIf="userForm.get('role')?.invalid && (userForm.get('role')?.dirty || userForm.get('role')?.touched)">
+      <small *ngIf="userForm.get('role')?.errors?.['required']">Role is required.</small>
+    </div>
+  </div>
+  <button type="submit" [disabled]="userForm.invalid">{{ editingUser ? 'Update User' : 'Add User' }}</button>
+  <button type="button" *ngIf="editingUser" (click)="cancelEdit()">Cancel Edit</button>
+</form>
+
+<hr>
+
+<h2>User List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Role</th>
+      <th>Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{ user.id }}</td>
+      <td>{{ user.name }}</td>
+      <td>{{ user.email }}</td>
+      <td>{{ user.role }}</td>
+      <td>
+        <button (click)="editUser(user)">Edit</button>
+      </td>
+    </tr>
+    <tr *ngIf="users.length === 0">
+      <td colspan="5" style="text-align: center;">No users found.</td>
+    </tr>
+  </tbody>
+</table>

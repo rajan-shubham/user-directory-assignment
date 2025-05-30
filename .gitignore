@@ -1,0 +1,55 @@
+# === Python ===
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.env
+.env
+venv/
+.env.*
+*.sqlite3
+
+# === Flask-related files ===
+instance/
+*.log
+*.pot
+
+# === Angular ===
+frontend/**/node_modules/
+frontend/**/dist/
+frontend/**/.angular/
+frontend/**/.env
+frontend/**/environment.ts
+
+# === macOS ===
+.DS_Store
+
+# === VS Code ===
+.vscode/
+
+# === General ===
+*.swp
+*.swo
+*.bak
+*.tmp
+*.orig
+*.log
+*.tgz
+
+# === Docker ===
+*.pid
+docker-compose.override.yml
+*.tar
+
+# === Tests / Coverage ===
+.coverage
+htmlcov/
+coverage.xml
+pytest_cache/
+.pytest_cache/
+.cache/
+
+# === Mongo credentials (if moved to env file later) ===
+*.pem
+*.crt
+*.key
