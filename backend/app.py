@@ -6,7 +6,7 @@ from pymongo import MongoClient, ReturnDocument
 from bson.objectid import ObjectId
 
 # MongoDB Setup
-client = MongoClient('mongodb+srv://shubhamrajan:PgHhCpP8RI4a3klV@devMeet.su8vc.mongodb.net/user_directory_db')
+client = MongoClient('')
 db = client.user_directory_db
 users_collection = db.users
 
